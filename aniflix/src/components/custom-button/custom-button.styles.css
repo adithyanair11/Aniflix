@@ -1,0 +1,25 @@
+.button-container{
+    min-width: 150px;
+    width:auto;
+    height:50px;
+    letter-spacing: 1.5px;
+    line-height: 50px;
+    padding:0 35px 0 35px;
+    font-size:15px;
+    background-color: transparent;
+    color:#fff;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: bolder;
+    border:2px solid #fff;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.button-container:hover{
+    background-color: #fff;
+    color:#111;
+    border:2px solid #111;
+}
