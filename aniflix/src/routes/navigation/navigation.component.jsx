@@ -25,8 +25,12 @@ export const Navigation = () => {
             </Link>
 
             <div className="nav-links">
-                <span>TV SHOWS</span>
-                <span>MOVIES</span>
+                <Link to="/tv" className='link'>
+                    <span>TV SHOWS</span>
+                </Link>
+                <Link to="/movies" className='link'>
+                    <span>MOVIES</span>
+                </Link>
                 <div className="avatar-cover">
                     <img className="nav-avatar" src="https://i.pinimg.com/736x/bf/c6/b9/bfc6b9efbf97c1d78cbbe71ed77f28e7.jpg" alt="avatar"/>
                 </div>

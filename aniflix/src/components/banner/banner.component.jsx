@@ -8,7 +8,8 @@ export const Banner = ({fetchUrl}) => {
     useEffect(() => {
         const fetchUrl = async() => {
             const results = await fetchUrls(url);
-            setShow(results[Math.floor(Math.random() * results.length - 1)])
+            setShow(results[Math.floor(Math.random() * results.length - 1)]);
+            return results;
         }
         fetchUrl();
     },[])

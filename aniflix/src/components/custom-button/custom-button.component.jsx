@@ -1,7 +1,8 @@
 import './custom-button.styles.css';
 
 export const BUTTON_TYPES_CLASSES = {
-    inverted: 'inverted',
+    google: 'google-sign-in',
+    getStarted: 'get-started'
 }
 
 export const Button = ({children,buttonType, ...otherProps}) => {

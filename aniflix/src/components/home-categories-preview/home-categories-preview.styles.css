@@ -1,0 +1,20 @@
+.home-categories-container{
+    width:100vw;
+    height:auto;
+    color:#fff;
+    padding: 20px;
+}
+
+.home-category{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:1em 0;
+    margin-bottom: 1em;
+}
+
+.home-category h2{
+    font-size: 2rem;
+    letter-spacing: 1px;
+}

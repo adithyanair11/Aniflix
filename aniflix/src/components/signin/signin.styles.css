@@ -1,0 +1,8 @@
+.sign-in-container{
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    width:380px;
+    color: #fff;
+}
+
