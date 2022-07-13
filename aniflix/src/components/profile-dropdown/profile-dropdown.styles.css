@@ -1,0 +1,16 @@
+.drop-down{
+    position: absolute;
+    top: 90px;
+    right:24px;
+    padding: 20px;
+    height: auto;
+    width: 240px;
+    z-index: 5;
+    background-color: #222;
+    display: flex;
+    gap: 1em 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

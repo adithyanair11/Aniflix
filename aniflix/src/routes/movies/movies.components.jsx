@@ -1,12 +1,13 @@
-import { Banner } from "../../components/banner/banner.component"
-import { Requests } from "../../utils/api/requests"
-import { CategoriesPreview } from "../../components/categories-preview/categories-preview.component"
+import { MoviesPreview } from "../movie-preview/movie-preview.component";
+import { CategoryItemPage } from "../../components/category-item-page/category-item-page.component";
+import { Route,Routes } from "react-router-dom";
 export const MoviesPage = () => {
-    const {movies} = Requests
     return(
         <div className="movie-page">
-            <Banner fetchUrl={movies.topRated}/>
-            <CategoriesPreview type={movies}/>
+            <Routes>
+                <Route index element={<MoviesPreview />}/>
+                <Route path=":id" element={<CategoryItemPage type="movie" />}/>
+            </Routes>
         </div>
     )
 }

@@ -1,0 +1,20 @@
+.watch-list-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.watch-list-container{
+    width:60vw;
+    margin-top: 8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#fff;
+}
+
+.empty{
+    padding:5em 0;
+    color:#fff;
+    font-size: 4rem;
+}

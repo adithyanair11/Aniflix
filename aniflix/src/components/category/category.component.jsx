@@ -18,7 +18,7 @@ export const Category = ({title,fetchCategory}) => {
             <h3 className='category-type'>{title}</h3>
             <div className='category-container'>
                 {
-                    categoryArray.map((categoryItem,idx) => <CategoryItem key={idx}categoryItem={categoryItem}/>)
+                    categoryArray.map((categoryItem) => <CategoryItem key={categoryItem.id}categoryItem={categoryItem} id={categoryItem.id}/>)
                 }
             </div>
         </div>

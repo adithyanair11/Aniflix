@@ -1,0 +1,3 @@
+export const SEARCH_ACTION_TYPE = {
+    SET_SEARCH_MODAL: 'SET_SEARCH_MODAL'
+}

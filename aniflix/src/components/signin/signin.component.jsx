@@ -3,8 +3,11 @@ import { useState } from 'react';
 import { Button } from '../custom-button/custom-button.component';
 import { signInWithGooglePopUp, signInAuthUserWithEmailAndPassword} from '../../utils/firebase/firebase.utils';
 import { FormInput } from '../form-input/form-input.component';
+import { useNavigate } from 'react-router-dom';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 export const SignIn = () => {
-
+    const navigate = useNavigate();
     const defaultFormFields = {
         email: '',
         password: '',
@@ -20,6 +23,7 @@ export const SignIn = () => {
 
     const logGoogleUser = async() => {
         await signInWithGooglePopUp();
+        navigate('/');
     }
 
     const handleChange = (e) => {
@@ -32,9 +36,20 @@ export const SignIn = () => {
         try{
             await signInAuthUserWithEmailAndPassword(email,password);
             resetFormFields();
+            navigate('/');
         }catch(err){
             if(err.code === 'auth/wrong-password'){
-                alert('incorrect password');
+                Toastify({
+                    text: "Incorrect username or password",
+                    duration: 3000,
+                    close: false,
+                    gravity: "bottom", 
+                    position: "center", 
+                    style: {
+                        backgroundColor: "#3f0d12",
+                        backgroundImage: "linear-gradient(315deg, #3f0d12 0%, #a71d31 74%)"
+                    },
+                  }).showToast();
             }
         }
     }

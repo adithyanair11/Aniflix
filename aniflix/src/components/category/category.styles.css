@@ -5,7 +5,7 @@
     flex-direction: column;
 }
 .category-container{
-    height: 285px;
+    height: 288px;
     display: flex;
     width: 100%;
     gap: 0 0.5em;

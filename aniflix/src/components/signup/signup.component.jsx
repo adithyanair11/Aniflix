@@ -4,6 +4,8 @@ import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebas
 import { createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import { Button } from '../custom-button/custom-button.component';
 import { FormInput } from '../form-input/form-input.component';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 
 export const SignUp = () => {
 
@@ -36,15 +38,36 @@ export const SignUp = () => {
                 resetFormFields();
             }catch(err){
                 if(err.code === 'auth/email-already-in-use'){
-                    alert('email already in use');
+                    Toastify({
+                        text: "email already in use",
+                        duration: 3000,
+                        close: false,
+                        gravity: "bottom", 
+                        position: "center", 
+                        style: {
+                            backgroundColor: "#3f0d12",
+                            backgroundImage: "linear-gradient(315deg, #3f0d12 0%, #a71d31 74%)"
+                        },
+                      }).showToast();
                 }else{
                     console.log(err);
                 }
             }
         }else{
-                alert('passwords do not match');
+            Toastify({
+                text: "passwords do not match",
+                duration: 3000,
+                close: false,
+                gravity: "bottom", 
+                position: "center", 
+                style: {
+                    backgroundColor: "#3f0d12",
+                    backgroundImage: "linear-gradient(315deg, #3f0d12 0%, #a71d31 74%)" 
+                },
+              }).showToast();
         }
-    }
+        }
+    
     return(
         <div className="sign-up-container">
             <h2>Don't have an account?</h2>

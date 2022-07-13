@@ -1,0 +1,57 @@
+.category-item-page{
+    width:100vw;
+    height: 100vh;
+}
+
+.banner{
+    position: relative;
+    height:520px;
+    object-fit: contain;
+    color:#fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.banner-contents{
+    display: flex;
+    flex-direction: column;
+    gap: 1em 0;
+    position: relative;
+    z-index: 2;
+}
+
+.banner-buttons{
+    display: flex;
+    gap: 0 1em;
+}
+
+.title{
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+.description{
+    width:45rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    max-width: 360px;
+    height: 80px;
+    font-weight: bold;
+}
+
+.banner-fade{
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color:rgba(45,52,54,0.2);
+    background-image: linear-gradient(315deg, rgba(45,52,54,0.2) 0%, #000000 74%);
+}
+
+.large{
+    height: 100%;
+}

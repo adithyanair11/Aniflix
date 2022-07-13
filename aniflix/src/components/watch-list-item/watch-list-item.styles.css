@@ -1,0 +1,23 @@
+.item-container{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.item-image{
+    width:100px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.name{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.watch-list-buttons{
+    display: flex;
+    gap: 0 0.5em;
+}

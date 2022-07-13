@@ -1,21 +1,18 @@
 import './home-categories-preview.styles.css';
-import { Requests } from '../../utils/api/requests';
 import {Category} from '../category/category.component';
 
-
-export const HomeCategoriesPreview = () => {
-    const {shows,movies} = Requests
+export const HomeCategoriesPreview = ({tv,movie}) => {
     return(
         <div className='home-categories-container'>
             <div className='home-category'>
                 <h2>Movies</h2>
-                <Category title="TOP RATED" fetchCategory={movies.topRated} />
-                <Category title="POPULAR" fetchCategory={movies.popular}/>
+                <Category title="TOP RATED" fetchCategory={movie.topRated} />
+                <Category title="POPULAR" fetchCategory={movie.popular}/>
             </div>
             <div className='home-category'>
                 <h2>Tv Shows</h2>
-                <Category title="TOP RATED" fetchCategory={shows.topRated}/>
-                <Category title="POPULAR" fetchCategory={shows.topRated}/>
+                <Category title="TOP RATED" fetchCategory={tv.topRated}/>
+                <Category title="POPULAR" fetchCategory={tv.topRated}/>
             </div>
         </div>
     )
