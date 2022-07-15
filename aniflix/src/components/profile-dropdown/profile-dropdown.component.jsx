@@ -6,6 +6,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectProfileDropDown } from '../../store/profile/profile.selector';
 import { setProfileDropDown } from '../../store/profile/profile.action';
+import { useNavigate } from 'react-router-dom';
 export const ProfileDropDown = () => {
     const dispatch = useDispatch()
     const currentUser = useSelector(selectCurrentUser);
@@ -16,12 +17,15 @@ export const ProfileDropDown = () => {
             return dispatch(setProfileDropDown(!dropDownState));
         }
     }
+    const navigate = useNavigate();
+    const goToHandler = () => {
+        navigate('/watchlist');
+        dispatch(setProfileDropDown(!dropDownState));
+    }
     return(
         <div className='drop-down'>
             <div className='view-sub'>View Subscription</div>
-            <Link className= "link" to="/watchlist">
-                <div className='watch-list'>Watch List</div>
-            </Link>
+            <div className='watch-list' onClick={goToHandler}>Watch List</div>
             <Button onClick={logOutHandler}>log out</Button>
         </div>
     )

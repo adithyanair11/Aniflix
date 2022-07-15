@@ -1,17 +1,17 @@
-import { SEARCH_ACTION_TYPE } from "./search.types";
+import { MODAL_ACTION_TYPE } from "./modal.types";
 
 const INITIAL_STATE = {
-    isSearchModalOpen: false
+    isSearchModalOpen: false,
 }
 
-export const searchReducer = (state=INITIAL_STATE,action) => {
+export const modalReducer = (state=INITIAL_STATE,action) => {
     const {type,payload} = action;
     switch(type){
-        case SEARCH_ACTION_TYPE.SET_SEARCH_MODAL:
+        case MODAL_ACTION_TYPE.SET_SEARCH_MODAL:
             return{
                 ...state,
                 isSearchModalOpen: payload
-            }
+            }  
         default:
             return state    
     }

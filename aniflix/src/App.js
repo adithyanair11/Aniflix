@@ -8,13 +8,13 @@ import {MoviesPage} from './routes/movies/movies.components';
 import {LandingPage} from './routes/landing/landing.component';
 import {AuthenticationPage} from './routes/authentication/authentication.component';
 import { WatchListPage } from './routes/watchlist/watch-list.component';
+import {SearchPage} from './components/search-page/search-page.component';
 import {onAuthStateChangedListener,createUserDocumentFromAuth} from './utils/firebase/firebase.utils';
 import { Navigate } from 'react-router-dom';
 import { setCurrentUser } from './store/user/user.action';
 import { selectCurrentUser } from './store/user/user.selector';
 import {useDispatch,useSelector} from 'react-redux';
 import {useEffect} from 'react';
-import {SearchPage} from './components/search-page/search-page.component';
 
 function App() {
   const dispatch = useDispatch();

@@ -1,14 +1,14 @@
 import './search-page.styles.css';
 import Modal from "react-responsive-modal";
 import {useSelector,useDispatch} from 'react-redux';
-import {selectSearchModal} from '../../store/search/search.selector';
-import {setSearchModal} from '../../store/search/search.action';
+import {selectSearchModal} from '../../store/modal/modal.selector';
+import {setSearchModal} from '../../store/modal/modal.action';
 import { SearchBox } from '../search-box/search-box.component';
 import { useState,useEffect } from 'react';
 import { baseUrl } from '../../utils/api/requests';
 import { API_KEY } from '../../utils/api/requests';
 import { fetchUrls } from '../../utils/api/fetchRequests';
-import { CategoryItem } from '../category-item/category-item.component';
+import { SearchCategoryItem } from '../search-category-item/search-category-item';
 import 'react-responsive-modal/styles.css';
 const styles = {
     modal: {
@@ -24,8 +24,8 @@ const styles = {
       padding: "20px"
     },
     overlay: {
-        backdropFilter: "blur(16px) saturate(180%)",
-        backgroundColor: "rgba(38, 38, 59, 0.75)"
+        backdropFilter: "blur(2px) saturate(23%)",
+        backgroundColor: "rgba(0,0,0,0.38)"
     },
     closeIcon: {
         fill: "#fff"
@@ -62,34 +62,40 @@ export const SearchPage = () => {
         setFilteredItems(newFilteredItems);
    },[items,searchField])
 
-    console.log(filterdItems);
-
     const handleChange = (e) => {
         const searchFieldString = e.target.value.toLowerCase();
         setSearchField(searchFieldString);
     }
     return(
-        <Modal
-        open={searchIconState}
-        onClose={() => dispatch(setSearchModal(!searchIconState))}
-        styles={styles}
-        animationDuration={1000}
-        focusTrapped={true}
-        closeIconSize={40}
-        showCloseIcon={true}
-        center>
-            <SearchBox 
-            type="search" 
-            placeholder="search" 
-            handleChange={handleChange}/>
-            <div className='search-items'>
-                {
-                    searchField ?
-                    (filterdItems.map(item => <CategoryItem key={item.id} categoryItem={item} id={item.id}/>))
-                    :
-                    null
-                }
-            </div>
-        </Modal>
+        <>
+        {
+            searchIconState ?
+            (<Modal
+                open={searchIconState}
+                onClose={() => dispatch(setSearchModal(!searchIconState))}
+                styles={styles}
+                animationDuration={1000}
+                focusTrapped={true}
+                closeIconSize={40}
+                showCloseIcon={true}
+                closeOnOverlayClick={false}
+                center>
+                    <SearchBox 
+                    type="search" 
+                    placeholder="eg.naruto,dragon ball" 
+                    handleChange={handleChange}/>
+                    <div className='search-items'>
+                        {
+                            searchField ?
+                            (filterdItems.map(item => <SearchCategoryItem key={item.id} categoryItem={item} id={item.id}/>))
+                            :
+                            null
+                        }
+                    </div>
+                </Modal>)
+                :
+                null
+        }
+        </>
     )
 }

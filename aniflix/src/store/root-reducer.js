@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import { userReducer } from './user/user-reducer';
 import { profileReducer } from './profile/profile.reducer';
-import { searchReducer } from './search/searchReducer';
+import { modalReducer } from './modal/modalReducer';
 
 export const rootReducer = combineReducers({
     user: userReducer,
     profile: profileReducer,
-    search: searchReducer
+    modal: modalReducer
 });

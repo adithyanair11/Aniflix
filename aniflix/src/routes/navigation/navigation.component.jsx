@@ -6,8 +6,8 @@ import { selectCurrentUser } from '../../store/user/user.selector';
 import {useDispatch,useSelector} from 'react-redux';
 import { setProfileDropDown } from '../../store/profile/profile.action';
 import { selectProfileDropDown } from '../../store/profile/profile.selector';
-import {setSearchModal} from '../../store/search/search.action';
-import {selectSearchModal} from '../../store/search/search.selector'
+import {setSearchModal} from '../../store/modal/modal.action';
+import {selectSearchModal} from '../../store/modal/modal.selector'
 import SearchIcon from '@mui/icons-material/Search';
 
 export const Navigation = () => {
