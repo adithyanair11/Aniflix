@@ -24,7 +24,6 @@ export const ProfileDropDown = () => {
     }
     return(
         <div className='drop-down'>
-            <div className='view-sub'>View Subscription</div>
             <div className='watch-list' onClick={goToHandler}>Watch List</div>
             <Button onClick={logOutHandler}>log out</Button>
         </div>

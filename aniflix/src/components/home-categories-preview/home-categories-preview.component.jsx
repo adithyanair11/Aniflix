@@ -6,13 +6,13 @@ export const HomeCategoriesPreview = ({tv,movie}) => {
         <div className='home-categories-container'>
             <div className='home-category'>
                 <h2>Movies</h2>
-                <Category title="TOP RATED" fetchCategory={movie.topRated} />
-                <Category title="POPULAR" fetchCategory={movie.popular}/>
+                <Category title="TOP RATED" fetchCategory={movie.topRated} type="movie"/>
+                <Category title="POPULAR" fetchCategory={movie.popular} type="movie"/>
             </div>
             <div className='home-category'>
                 <h2>Tv Shows</h2>
-                <Category title="TOP RATED" fetchCategory={tv.topRated}/>
-                <Category title="POPULAR" fetchCategory={tv.topRated}/>
+                <Category title="TOP RATED" fetchCategory={tv.topRated} type="tv"/>
+                <Category title="POPULAR" fetchCategory={tv.popular} type="tv"/>
             </div>
         </div>
     )

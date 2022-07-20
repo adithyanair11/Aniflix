@@ -7,7 +7,8 @@ export const Home = () => {
         <div className='home-page'>
             <Routes>
                 <Route index element={<HomePreview />} />
-                <Route path=":id" element={<CategoryItemPage type="movie" />} />
+                <Route path="movie/:id" element={<CategoryItemPage type="movie" />} />
+                <Route path="tv/:id" element={<CategoryItemPage type="tv" />} />
             </Routes>
         </div>
     )

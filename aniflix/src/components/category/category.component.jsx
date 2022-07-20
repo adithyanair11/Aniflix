@@ -5,7 +5,7 @@ import { CategoryItem } from '../category-item/category-item.component';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useRef } from 'react';
-export const Category = ({title,fetchCategory}) => {
+export const Category = ({title,fetchCategory,type}) => {
     const [categoryArray, setCategoryArray] = useState([]);
     const [slideNumber,setSlideNumber] = useState(0);
     useEffect(() => {
@@ -38,7 +38,7 @@ export const Category = ({title,fetchCategory}) => {
                 </div>
                 <div className='container' ref={itemRef}>
                 {
-                     categoryArray.map((categoryItem) => <CategoryItem  key={categoryItem.id}categoryItem={categoryItem} id={categoryItem.id}/>)
+                     categoryArray.map((categoryItem) => <CategoryItem  key={categoryItem.id}categoryItem={categoryItem} id={categoryItem.id} type={type}/>)
                 }
                 </div>
                 <div className='forward arrow-container'>
