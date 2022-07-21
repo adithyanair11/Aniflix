@@ -23,8 +23,10 @@
 }
 
 @media (max-width:768px){
+    .item-container{
+        justify-content: space-around;
+    }
     .name{
-        font-size: 0.8em;
-        font-weight: bold;
+        display: none;
     }
 }
