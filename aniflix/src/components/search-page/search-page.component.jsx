@@ -21,7 +21,7 @@ const styles = {
       minWidth: "100%",
       alignItems: "center",
       flexDirection: "column",
-      padding: "20px"
+      padding: "10px"
     },
     overlay: {
         backdropFilter: "blur(2px) saturate(23%)",

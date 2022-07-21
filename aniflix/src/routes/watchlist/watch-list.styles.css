@@ -18,3 +18,19 @@
     color:#fff;
     font-size: 4rem;
 }
+
+@media (max-width:768px){
+    .watch-list-page{
+        width:100vw;
+        height: 100vh;
+        padding: 0 20px;
+    }
+    .watch-list-container{
+        width: 100%;
+    }
+    .empty{
+        padding:5em 0;
+        color:#fff;
+        font-size: 2rem;
+    }
+}

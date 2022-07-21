@@ -68,3 +68,20 @@
     height: 100%;
     width: 100%;
 }
+
+@media (max-width:768px){
+    .nav-container{
+        padding: 10px;
+    }
+    .logo{
+        width:40px;
+        height:40px;
+    }
+    .nav-container span{
+        font-size: 16px;
+    }
+    .avatar-cover{
+        width: 40px;
+        height:40px;
+    }
+}

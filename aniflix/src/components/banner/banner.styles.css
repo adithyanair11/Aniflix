@@ -53,3 +53,18 @@ span svg{
     top:6px;
     right:4px;
 }
+
+@media (max-width:768px){
+    .title{
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    .description{
+        width:45rem;
+        line-height: 1.5;
+        font-size: 0.8rem;
+        max-width: 360px;
+        height: 80px;
+        font-weight: bold;
+    }
+}
