@@ -73,8 +73,10 @@ export const SignIn = () => {
                 name="password"
                 value={password}/>
                 
-                <Button type="submit">Sign in</Button>
-                <Button onClick={logGoogleUser} type="submit" buttonType="google">Sign in with google</Button>
+                <div className='sign-in-button-container'>
+                    <Button type="submit">Sign in</Button>
+                    <Button onClick={logGoogleUser} type="submit" buttonType="google">Sign in with google</Button>
+                </div>
             </form>
         </div>
     )

@@ -6,3 +6,8 @@
     color: #fff;
 }
 
+.sign-in-button-container{
+    display: flex;
+    width:100%;
+    gap: 0 0.4em;
+}
