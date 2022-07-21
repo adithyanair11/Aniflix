@@ -84,4 +84,10 @@
         width: 40px;
         height:40px;
     }
+    .nav-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:0 1em;
+    }
 }
