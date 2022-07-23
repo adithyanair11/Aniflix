@@ -9,7 +9,6 @@ export const CategoryItem = ({categoryItem,id,type}) => {
     const removeSearchModal = () => {
         dispatch(setSearchModal(false));
     }
-    console.log(categoryItem)
     return(
         <Link className="item-link" to={type ? `${type}/${id}` : `${id}`}>
         <div className='category-item' onClick={searchModalState ? removeSearchModal : null}>

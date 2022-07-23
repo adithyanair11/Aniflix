@@ -18,6 +18,10 @@
     display: flex;
     gap: 0 0.5em;
     transition: all 1s ease;
+    overflow-x: scroll;
+}
+.container::-webkit-scrollbar{
+    display: none;
 }
 
 
