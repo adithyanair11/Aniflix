@@ -8,7 +8,8 @@ import { useState,useEffect } from 'react';
 import { baseUrl } from '../../utils/api/requests';
 import { API_KEY } from '../../utils/api/requests';
 import { fetchUrls } from '../../utils/api/fetchRequests';
-import { SearchCategoryItem } from '../search-category-item/search-category-item';
+// import { SearchCategoryItem } from '../search-category-item/search-category-item';
+import { CategoryItem } from '../category-item/category-item.component';
 import 'react-responsive-modal/styles.css';
 const styles = {
     modal: {
@@ -87,7 +88,7 @@ export const SearchPage = () => {
                     <div className='search-items'>
                         {
                             searchField ?
-                            (filterdItems.map(item => <SearchCategoryItem key={item.id} categoryItem={item} id={item.id}/>))
+                            (filterdItems.map(item => <CategoryItem key={item.id} categoryItem={item} type={item?.media_type} id={item.id}/>))
                             :
                             null
                         }
