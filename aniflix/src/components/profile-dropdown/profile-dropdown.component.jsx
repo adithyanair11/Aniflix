@@ -24,7 +24,7 @@ export const ProfileDropDown = () => {
     }
     return(
         <div className='drop-down'>
-            <div className='watch-list' onClick={goToHandler}>Watch List</div>
+            <Button onClick={goToHandler}>Watch List</Button>
             <Button onClick={logOutHandler}>log out</Button>
         </div>
     )
