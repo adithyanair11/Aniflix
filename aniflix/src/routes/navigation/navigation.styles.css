@@ -40,6 +40,7 @@
     height: 50px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .nav-avatar{
