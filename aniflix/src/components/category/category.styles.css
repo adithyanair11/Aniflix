@@ -66,3 +66,13 @@
 .category-container:hover .arrow-container{
     opacity: 1;
 }
+
+
+@media (max-width:768px){
+    .category{
+        height: 260px;
+    }
+    .category-container{
+        height:258px;
+    }
+}

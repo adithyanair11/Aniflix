@@ -1,11 +1,21 @@
 import './landing.styles.css';
 import { Button } from '../../components/custom-button/custom-button.component';
 import { useNavigate } from 'react-router-dom';
-import {motion} from 'framer-motion';
+import {motion,Variants} from 'framer-motion';
 export const LandingPage = () => {
     const navigate = useNavigate();
     const goToAuthentication = () => {
         navigate('/authentication');
+    }
+    const textAnimate = {
+        offscreen: {y:100,opacity:0},
+        onscreen: {
+            y: 0,
+            transition: {type:"spring"},
+            bounce:0.4,
+            duration:3,
+            opacity:1
+        }
     }
     return(
         <div className='landing-page' style={{
@@ -16,9 +26,10 @@ export const LandingPage = () => {
         }}>
         <motion.div 
         className='landing-page-contents'
-        initial={{y:"100%",opacity:0.2,scale:0.5}}
-        animate={{y:0,opacity:1,scale:1}}
-        transition={{duration:0.5,ease:"easeIn"}}>
+        initial={"offscreen"}
+        animate={"onscreen"}
+        variants={textAnimate}
+        >
             <h1>Welcome to Aniflix</h1>
             <h2>Unlimited films, TV Programmes and more.</h2>
             <p>Watch anywhere. Cancel at any time.</p>

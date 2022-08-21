@@ -8,8 +8,8 @@ import { useState,useEffect } from 'react';
 import { baseUrl } from '../../utils/api/requests';
 import { API_KEY } from '../../utils/api/requests';
 import { fetchUrls } from '../../utils/api/fetchRequests';
-// import { SearchCategoryItem } from '../search-category-item/search-category-item';
 import { CategoryItem } from '../category-item/category-item.component';
+import {motion,Variants} from 'framer-motion';
 import 'react-responsive-modal/styles.css';
 const styles = {
     modal: {
@@ -22,16 +22,26 @@ const styles = {
       minWidth: "100%",
       alignItems: "center",
       flexDirection: "column",
-      padding: "10px"
+      
     },
     overlay: {
-        backdropFilter: "blur(2px) saturate(23%)",
-        backgroundColor: "rgba(0,0,0,0.38)"
+        backdropFilter: "blur(3px) saturate(23%)",
+        backgroundColor: "rgba(0,0,0,0.5)"
     },
     closeIcon: {
         fill: "#fff"
       }
   };
+  const textAnimate = {
+    offscreen: {y:100,opacity:0},
+    onscreen: {
+        y: 0,
+        transition: {type:"spring"},
+        bounce:0.4,
+        duration:3,
+        opacity:1
+    }
+}
 export const SearchPage = () => {
     const dispatch  = useDispatch();
     const searchIconState = useSelector(selectSearchModal);
@@ -90,7 +100,13 @@ export const SearchPage = () => {
                             searchField ?
                             (filterdItems.map(item => <CategoryItem key={item.id} categoryItem={item} type={item?.media_type} id={item.id}/>))
                             :
-                            null
+                            (<motion.h1 
+                            className="empty-search"
+                            initial={"offscreen"}
+                            animate={"onscreen"}
+                            variants={textAnimate}
+                            >
+                            What's on your mind?</motion.h1>)
                         }
                     </div>
                 </Modal>)

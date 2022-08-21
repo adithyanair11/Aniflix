@@ -5,7 +5,8 @@ import { CategoryItem } from '../category-item/category-item.component';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useRef } from 'react';
-export const Category = ({title,fetchCategory,type}) => {
+import {motion,useAnimation} from 'framer-motion';
+export const Category = ({title,fetchCategory,type,inView}) => {
     const [categoryArray, setCategoryArray] = useState([]);
     const [slideNumber,setSlideNumber] = useState(0);
     useEffect(() => {
@@ -29,8 +30,23 @@ export const Category = ({title,fetchCategory,type}) => {
             itemRef.current.style.transform = `translateX(${-168 + distance}px)`;
         }
     }
+    const animation = useAnimation();
+    useEffect(() => {
+        if(inView){
+            animation.start({
+                x:0,
+                transition: {
+                    type: 'spring',
+                    duration:1.5,
+                    bounce: 0.3
+                }
+            })
+        }else{
+            animation.start({x:'-100vw'})
+        }
+    },[inView])
     return(
-        <div className='category'>
+        <motion.div className='category' animate={animation}>
             <h3 className='category-type'>{title}</h3>
             <div className='category-container'>
                 <div className='backward arrow-container'>
@@ -45,6 +61,6 @@ export const Category = ({title,fetchCategory,type}) => {
                     <ArrowForwardIosIcon onClick={() => handleClick('right')} />
                  </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

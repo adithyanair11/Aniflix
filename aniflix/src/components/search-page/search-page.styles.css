@@ -7,3 +7,18 @@
     flex-wrap: wrap;
     margin-top: 1em;
 }
+
+.empty-search{
+    background-image:-webkit-linear-gradient(10deg, #ffaa00, #ff6a00);
+    background-clip: text;
+    color:transparent;
+    margin: 60px auto;
+    font-size: 4.6rem;
+    letter-spacing: 3px;
+}
+
+@media (max-width:768px){
+    .empty-search{
+        font-size: 2rem;
+    }
+}

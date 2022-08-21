@@ -9,7 +9,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
-
+import {motion,Variants} from 'framer-motion';
 export const Banner = ({fetchUrl}) => {
     const [banner,setBanner] = useState([]);
     const url = fetchUrl
@@ -40,22 +40,29 @@ export const Banner = ({fetchUrl}) => {
     const truncate = (string,n) => {
         return string?.length > n ? string.substr(0,n-1) + '...' : string;
     }
-    const opts = {
-        height:"390",
-        width: "100%",
-        playerVars: {
-            autoplay: 1,
+    const textAnimate = {
+        offscreen: {y:100,opacity:0},
+        onscreen: {
+            y: 0,
+            transition: {type:"spring"},
+            bounce:0.4,
+            duration:3,
+            opacity:1
         }
-    };
+    }
     return(
         <>
-        <div className='banner' style={{
+        <div className='banner' 
+        style={{
             backgroundImage: `url("https://image.tmdb.org/t/p/original/${banner?.backdrop_path}")`,
             backgroundSize: "cover",
             backgroundPosition: "top center",
             backgroundRepeat: "no-repeat"
             }} >
-                <div className='banner-contents'>
+                <motion.div className='banner-contents'
+                initial={"offscreen"}
+                animate={"onscreen"}
+                variants={textAnimate}>
                 <h1 className='title'>{banner?.title || banner?.name}</h1>
                 <div className='banner-buttons'>
                     <Button>
@@ -70,7 +77,7 @@ export const Banner = ({fetchUrl}) => {
                     truncate(banner?.overview,150)
                 }
                 </div>
-            </div>
+            </motion.div>
             
             <div className='banner-fade'/>
         </div>
