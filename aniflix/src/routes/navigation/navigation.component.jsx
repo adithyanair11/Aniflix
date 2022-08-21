@@ -5,20 +5,21 @@ import { ProfileDropDown } from '../../components/profile-dropdown/profile-dropd
 import { selectCurrentUser } from '../../store/user/user.selector';
 import {useDispatch,useSelector} from 'react-redux';
 import { setProfileDropDown } from '../../store/profile/profile.action';
-import { selectProfileDropDown } from '../../store/profile/profile.selector';
+import { selectProfileDropDown,selectWatchList } from '../../store/profile/profile.selector';
 import {setSearchModal} from '../../store/modal/modal.action';
-import {selectSearchModal} from '../../store/modal/modal.selector'
+import {selectSearchModal} from '../../store/modal/modal.selector';
+
 import SearchIcon from '@mui/icons-material/Search';
 
 export const Navigation = () => {
     const dispatch = useDispatch();
     const currentUser = useSelector(selectCurrentUser);
+    const watchList = useSelector(selectWatchList);
     const profileDropDownState = useSelector(selectProfileDropDown);
     const [show,handleShow] = useState(false);
     const toggleProfileDropDown = () => dispatch(setProfileDropDown(!profileDropDownState));
     const searchIconState = useSelector(selectSearchModal);
-
-
+    
     const transitionNav = () => {
         if(window.scrollY > 80){
             handleShow(true);
@@ -70,7 +71,17 @@ export const Navigation = () => {
                 <div className="avatar-cover">
                 {
                     currentUser ? 
-                    (<img onClick={toggleProfileDropDown} className="nav-avatar" src="https://i.pinimg.com/736x/bf/c6/b9/bfc6b9efbf97c1d78cbbe71ed77f28e7.jpg" alt="avatar"/>)
+                    (
+                        <>
+                        <img onClick={toggleProfileDropDown} className="nav-avatar" src="https://i.pinimg.com/736x/bf/c6/b9/bfc6b9efbf97c1d78cbbe71ed77f28e7.jpg" alt="avatar"/>
+                        {
+                            watchList.length > 0 ?
+                            (<div className='count'>{watchList.length}</div>)
+                            :
+                            null
+                        }
+                        </>
+                    )
                     :
                     null
                 }
