@@ -12,6 +12,7 @@ import "toastify-js/src/toastify.css";
 import {motion,Variants} from 'framer-motion';
 export const Banner = ({fetchUrl}) => {
     const [banner,setBanner] = useState([]);
+    const [desc,setDesc] = useState(false);
     const url = fetchUrl
     useEffect(() => {
         const fetchUrl = async() => {
@@ -23,6 +24,9 @@ export const Banner = ({fetchUrl}) => {
     },[url])
     const dispatch = useDispatch();
     const watchList = useSelector(selectWatchList);
+    const handleShow = () => {
+        setDesc(!desc)
+    }
     const watchListHandler = () => {
         dispatch(addItemToList(watchList,banner));
         Toastify({
@@ -62,21 +66,25 @@ export const Banner = ({fetchUrl}) => {
                 <motion.div className='banner-contents'
                 initial={"offscreen"}
                 animate={"onscreen"}
-                variants={textAnimate}>
-                <h1 className='title'>{banner?.title || banner?.name}</h1>
-                <div className='banner-buttons'>
+                transition={{staggerChildren:0.5}}>
+                <motion.h1 variants={textAnimate} className='title'>{banner?.title || banner?.name}</motion.h1>
+                <motion.div variants={textAnimate} className='banner-buttons'>
                     <Button>
                         <span><PlayCircleOutlineIcon /></span>play now
                     </Button>
                     <Button onClick={watchListHandler}>
                         <span><AddCircleOutlineIcon /></span>watch list
                     </Button>
-                </div>
-                <div className='description'>
+                </motion.div>
+                <motion.div variants={textAnimate} className='description' 
+                onClick={handleShow}>
                 {
-                    truncate(banner?.overview,150)
+                    desc ?
+                    (banner?.overview)
+                    :
+                    (truncate(banner?.overview,150))
                 }
-                </div>
+                </motion.div>
             </motion.div>
             
             <div className='banner-fade'/>

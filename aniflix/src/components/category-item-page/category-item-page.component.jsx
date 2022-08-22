@@ -10,8 +10,10 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
+import {motion,Variants} from 'framer-motion';
 export const CategoryItemPage = ({type}) => {
     const [categoryItemData, setCategoryItemData] = useState({});
+    const [desc,setDesc] = useState(false);
     const {id} = useParams();
     const categoryUrl = `${baseUrl}/${type}/${id}?api_key=${API_KEY}&language=en-US`;
 
@@ -48,6 +50,19 @@ export const CategoryItemPage = ({type}) => {
     const truncate = (string,n) => {
         return string?.length > n ? string.substr(0,n-1) + '...' : string;
     }
+    const textAnimate = {
+        offscreen: {y:100,opacity:0},
+        onscreen: {
+            y: 0,
+            transition: {type:"spring"},
+            bounce:0.4,
+            duration:3,
+            opacity:1
+        }
+    }
+    const handleShow = () => {
+        setDesc(!desc)
+    }
     return(
         <div className='category-item-page'>
         <div className='banner large' style={{
@@ -56,18 +71,32 @@ export const CategoryItemPage = ({type}) => {
             backgroundPosition: "top center",
             backgroundRepeat: "no-repeat"
         }}>
-            <div className='banner-contents'>
-                <h1 className='title'>{categoryItemData?.title || categoryItemData?.name}</h1>
-                <div className='banner-buttons'>
+            <motion.div 
+            className='banner-contents'
+            initial={"offscreen"}
+            animate={"onscreen"}
+            transition={{staggerChildren:0.5}}>
+                <motion.h1 
+                className='title' 
+                variants={textAnimate}>{categoryItemData?.title || categoryItemData?.name}</motion.h1>
+                <motion.div 
+                className='banner-buttons'
+                variants={textAnimate}>
                     <Button><span><PlayCircleOutlineIcon /></span>play now</Button>
                     <Button onClick={watchListHandler}><span><AddCircleOutlineIcon /></span>watch list</Button>
-                </div>
-                <div className='description'>
+                </motion.div>
+                <motion.div 
+                className='description'
+                variants={textAnimate}
+                onClick={handleShow}>
                 {
-                    truncate(categoryItemData?.overview,150)
+                    desc ?
+                    (categoryItemData?.overview)
+                    :
+                    (truncate(categoryItemData?.overview,150))
                 }
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
             <div className='banner-fade'/>
         </div>
 

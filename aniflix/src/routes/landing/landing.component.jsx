@@ -18,7 +18,8 @@ export const LandingPage = () => {
         }
     }
     return(
-        <div className='landing-page' style={{
+        <div className='landing-page'
+        style={{
             backgroundImage: "url('http://wallpapercave.com/wp/agHMSaj.jpg')",
             backgroundPosition: "center center",
             backgroundSize: "cover",
