@@ -86,7 +86,7 @@ export const CategoryItemPage = ({type}) => {
                     <Button onClick={watchListHandler}><span><AddCircleOutlineIcon /></span>watch list</Button>
                 </motion.div>
                 <motion.div 
-                className='description'
+                className='item-description'
                 variants={textAnimate}
                 onClick={handleShow}>
                 {

@@ -93,7 +93,7 @@ export const SearchPage = () => {
                 center>
                     <SearchBox 
                     type="search" 
-                    placeholder="eg.naruto,dragon ball" 
+                    placeholder="eg.naruto, death note" 
                     handleChange={handleChange}/>
                     <div className='search-items'>
                         {
