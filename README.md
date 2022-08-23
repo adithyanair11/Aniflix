@@ -1,6 +1,6 @@
 # Aniflix
 
-This application allows users to browse through various anime tv shows and movies of various genres using the TMBD API.
+This application allows users to browse through anime tv shows and movies of various genres using the TMBD API.
 
 ## Application Features
 
