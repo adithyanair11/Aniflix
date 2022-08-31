@@ -1,7 +1,8 @@
 import {Outlet} from 'react-router-dom';
 import { Banner } from '../../components/banner/banner.component';
 import {Requests} from '../../utils/api/requests'
-import {HomeCategoriesPreview} from '../../components/home-categories-preview/home-categories-preview.component'
+import {HomeCategoriesPreview} from '../../components/home-categories-preview/home-categories-preview.component';
+
 export const HomePreview = () => {
     const {tv,movie} = Requests;
     return(

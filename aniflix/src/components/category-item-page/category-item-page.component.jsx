@@ -11,6 +11,7 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 import {motion,Variants} from 'framer-motion';
+
 export const CategoryItemPage = ({type}) => {
     const [categoryItemData, setCategoryItemData] = useState({});
     const [desc,setDesc] = useState(false);
@@ -30,7 +31,7 @@ export const CategoryItemPage = ({type}) => {
 
         }
         categoryItemResult();
-    },[])
+    },[id])
     const dispatch = useDispatch();
     const watchList = useSelector(selectWatchList);
     const watchListHandler = () => {
@@ -103,3 +104,5 @@ export const CategoryItemPage = ({type}) => {
         </div>
     )
 } 
+
+
